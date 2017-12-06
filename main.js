@@ -21,8 +21,7 @@ rp('http://cs-server.usc.edu:45678/lectures.html')
   $ = cheerio.load(data);
   $('td').find('a').each((i, el) => {
     var re = new RegExp('.+?\.pdf');
-    var found = re.test($(el).attr('href'));
-    if(found) {
+    if(re.test($(el).attr('href'))) {
       var options = {
         uri: `http://cs-server.usc.edu:45678/${$(el).attr('href')}`,
         auth: {
@@ -35,6 +34,7 @@ rp('http://cs-server.usc.edu:45678/lectures.html')
       var arr = $(el).attr('href').split('/');
       var name = arr[arr.length-1].toLowerCase();
       var cat = arr[0];
+      moment.suppressDeprecationWarnings = true;
       var date = moment(`${$(el).parent().parent().children().first().next().html()} 2017`).format('YY-MM-DD_');
       if(date === 'Invalid date') date = String();
       rp(options)
