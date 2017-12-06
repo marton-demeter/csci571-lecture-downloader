@@ -1,0 +1,20 @@
+{
+  "name": "csci571",
+  "version": "1.0.0",
+  "description": "Utility to download all lecture slides for CSCI571",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/marton-demeter/csci571-lecture-downloader"
+  },
+  "author": "Marton Demeter <marton1029@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  }
+}
